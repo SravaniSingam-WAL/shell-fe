@@ -11,7 +11,13 @@ export const getTenantId = () => {
     const { tenantId } =  JSON.parse(localStorage.getItem('user') || '{}');
     return tenantId || '';
 };
+
+export const getBrandName = () => {
+    const { brandName } =  JSON.parse(localStorage.getItem('user') || '{}');
+    return brandName || '';
+};
+
 export const setToken = (userDetails) => {
-    localStorage.setItem('user', JSON.stringify(userDetails));    
+    localStorage.setItem('user', JSON.stringify(userDetails));   
 };
     

@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { getTenantId } from "./utils";
+import { getBrandName, getTenantId, getToken } from "./utils";
 
 const Home = () => {
 
     const [data,setData] = useState([])
-
+    const [brandName, setBrandName]=useState(getBrandName())
+ 
   useEffect(()=>{
       fetchData()
   },[]);
   const fetchData = async () =>{
     try{
+      const token=getToken()
       const tenantId = getTenantId()
       console.log(tenantId,'tenantId')
       const result = await axios.get(
         `http://localhost:3030/api/tenant/${tenantId}/permissions`,
         {
           headers: {
-            "Content-Type": "application/json"
+            Authorization: token,
           },
+        
         }
       );
       console.log(result,'result data')
@@ -33,6 +36,10 @@ const Home = () => {
     <div>
       <h2>Home Page</h2>
       <h2>Click on Below links to open particular app</h2>
+      BrandName : <strong>{brandName}</strong>
+      <br/>
+      <br/>
+      <br/>
       <div>
         {data.map((app, index) => (
           app.isAccess && (

@@ -4,12 +4,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { setToken } from "./utils";
 const Login = () => {
-  const [error,setError] = useState("")
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error,setError] = useState("")
   const navigate = useNavigate();
 
-  const handleLogin= async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     console.log("Username:", username);
     console.log("Password:", password);
@@ -28,22 +28,25 @@ const Login = () => {
     );
     if (result) {
       console.log("Result", result);
-  //    console.log("-=======", result.data.user);
-    setToken(result.data.user);
+      console.log("-=======", result.data.user);
+      setToken(result.data.user);
       navigate("/home");
     }
-  }
-  catch(error){
+  }  catch(error){
     if(error.response && error.response.status === 401){
       console.log('Invalid email or password')
       setError('Invalid email or password')
+    }
+    else{
+    console.log(error.message,'response')
+    setError(error.message)
     }
   }
   };
 
   return (
     <div>
-      <h2>Login Page</h2>
+      <h2 className="loginText">Login Page</h2>
       <form onSubmit={handleLogin}>
         <label>
           Username:
@@ -65,7 +68,7 @@ const Login = () => {
         <br />
         <button type="submit">Login</button>
       </form>
-      {error && error}
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 };
