@@ -5,8 +5,7 @@ import { getBrandName, getTenantId, getToken } from "./utils";
 const Home = () => {
 
     const [data,setData] = useState([])
-    const [brandName, setBrandName]=useState(getBrandName())
- 
+    
   useEffect(()=>{
       fetchData()
   },[]);
@@ -36,7 +35,6 @@ const Home = () => {
     <div>
       <h2>Home Page</h2>
       <h2>Click on Below links to open particular app</h2>
-      BrandName : <strong>{brandName}</strong>
       <br/>
       <br/>
       <br/>
@@ -47,10 +45,10 @@ const Home = () => {
               <span
                 style={{ cursor: 'pointer' }}
                 onClick={() => {
-                  console.log(`Clicked on ${app.appName}`);
+                  console.log(`Clicked on ${app.application.name}`);
                 }}
               >
-                {app.appName}
+                {app.application.name}
               </span>
               <br />
               <br />
