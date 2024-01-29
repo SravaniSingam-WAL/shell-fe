@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getBrandName, getTenantId, getToken } from "./utils";
+import { PORT } from "./config";
 
 const Home = () => {
 
@@ -15,7 +16,7 @@ const Home = () => {
       const tenantId = getTenantId()
       console.log(tenantId,'tenantId')
       const result = await axios.get(
-        `http://localhost:3030/api/tenant/${tenantId}/permissions`,
+        `${PORT}/api/tenant/${tenantId}/permissions`,
         {
           headers: {
             Authorization: token,
