@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { setToken } from "./utils";
-import { PORT } from "./config";
+import { API_URL } from "./config";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -17,7 +17,7 @@ const Login = () => {
     console.log("Password:", password);
     try{
     const result = await axios.post(
-      `${PORT}/api/login`,
+      `${API_URL}/api/login`,
       {
         username,
         password,

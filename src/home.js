@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { getTenantId, getToken } from "./utils";
-import { PORT } from "./config";
+import { API_URL } from "./config";
+import { getBaseUrl } from "./config";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Home = () => {
       const tenantId = getTenantId()
       console.log(tenantId,'tenantId')
       const result = await axios.get(
-        `${PORT}/api/tenant/${tenantId}/permissions`,
+        `${API_URL}/api/tenant/${tenantId}/permissions`,
         {
           headers: {
             Authorization: token,
@@ -48,7 +49,9 @@ const Home = () => {
                 style={{ cursor: 'pointer' }}
                 onClick={() => {
                   console.log(`Clicked on ${app.application.name}`);
-                  navigate(`/${(app.application.name).toLowerCase()}`)
+                  const baseUrl = getBaseUrl(app.application.name);
+                  console.log(baseUrl,'Base Url')
+                  window.location.replace(baseUrl);
                 }}
               >
                 {app.application.name}
