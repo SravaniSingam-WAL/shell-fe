@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import { getTenantId, getToken } from "./utils";
+import { getTenantId, getToken,getBrandName } from "./utils";
 import { API_URL } from "./config";
 import { getBaseUrl } from "./config";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
   const navigate = useNavigate();
     const [data,setData] = useState([])
+    const brandName=getBrandName()
     
   useEffect(()=>{
       fetchData()
@@ -36,32 +38,37 @@ const Home = () => {
   }
   return (
     <div>
-      <h2>Home Page</h2>
-      <h2>Click on Below links to open particular app</h2>
+    <br></br>
+      <h2>{brandName}</h2>
+      <h4>Click on Below links to open particular app</h4>
       <br/>
       <br/>
       <br/>
-      <div>
+      <div className="container">
+      <div className="row">
         {data.map((app, index) => (
           app.isAccess && (
-            <div key={index}>
-              <span
-                style={{ cursor: 'pointer' }}
-                onClick={() => {
-                  console.log(`Clicked on ${app.application.name}`);
-                  const baseUrl = getBaseUrl(app.application.name);
-                  console.log(baseUrl,'Base Url')
-                  window.location.replace(baseUrl);
-                }}
-              >
-                {app.application.name}
-              </span>
-              <br />
-              <br />
+            <div key={index} className="col-md-4 mb-3"> {/* Adjust col-md-* based on your design */}
+              <div className="card">
+                <div className="card-body">
+                  <span
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => {
+                      console.log(`Clicked on ${app.application.name}`);
+                      const baseUrl = getBaseUrl(app.application.name);
+                      console.log(baseUrl, 'Base Url');
+                      window.location.replace(baseUrl);
+                    }}
+                  >
+                    {app.application.name}
+                  </span>
+                </div>
+              </div>
             </div>
           )
         ))}
       </div>
+    </div>
      </div>
   );
 };
