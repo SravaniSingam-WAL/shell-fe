@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { getBrandName, getTenantId, getToken } from "./utils";
+import { useNavigate } from 'react-router-dom';
+import { getTenantId, getToken } from "./utils";
 import { PORT } from "./config";
 
 const Home = () => {
-
+  const navigate = useNavigate();
     const [data,setData] = useState([])
     
   useEffect(()=>{
@@ -47,6 +48,7 @@ const Home = () => {
                 style={{ cursor: 'pointer' }}
                 onClick={() => {
                   console.log(`Clicked on ${app.application.name}`);
+                  navigate(`/${(app.application.name).toLowerCase()}`)
                 }}
               >
                 {app.application.name}
