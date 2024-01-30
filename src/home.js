@@ -48,21 +48,21 @@ const Home = () => {
       <div className="row">
         {data.map((app, index) => (
           app.isAccess && (
-            <div key={index} className="col-md-4 mb-3"> {/* Adjust col-md-* based on your design */}
-              <div className="card">
+            <div key={index} className="col-md-3 mb-3">
+              <div className="card" style={{ cursor: 'pointer' }} onClick={() => console.log(`Clicked on ${app.application.name}`)}>
                 <div className="card-body">
-                  <span
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => {
-                      console.log(`Clicked on ${app.application.name}`);
-                      const baseUrl = getBaseUrl(app.application.name);
-                      console.log(baseUrl, 'Base Url');
-                      window.location.replace(baseUrl);
-                    }}
-                  >
-                    {app.application.name}
-                  </span>
-                </div>
+                <span
+                style={{ cursor: 'pointer' }}
+                onClick={() => {
+                  console.log(`Clicked on ${app.application.name}`);
+                  const baseUrl = getBaseUrl(app.application.name);
+                  console.log(baseUrl, 'Base Url');
+                  window.location.replace(baseUrl);
+                }}
+              >
+                {app.application.name}
+              </span>
+            </div>
               </div>
             </div>
           )
