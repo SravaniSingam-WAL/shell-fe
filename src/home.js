@@ -54,7 +54,7 @@ const Home = () => {
                   console.log(`Clicked on ${app.application.name}`);
                   const baseUrl = getBaseUrl(app.application.name);
                   console.log(baseUrl, 'Base Url');
-                  window.location.replace(baseUrl);
+                  window.location.replace(`${baseUrl}${app.application.url}`)
                 }}
               >
                 {app.application.name}
