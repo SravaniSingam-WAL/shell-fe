@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { setToken } from "./utils";
 import { API_URL } from "./config";
+import './login.scss';
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -47,31 +48,43 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2 className="loginText">Login Page</h2>
+    <section className="login">
+    <div className="content">
+    <div className="heading">
+    <p>Shell App Login</p>
+    </div>
       <form onSubmit={handleLogin}>
-        <label>
+      <div className={`form-group, position-relative`}>
+        <label >
           Username:
           <input
             type="text"
             value={username}
+            className={'form-control'}
+            placeholder="Enter Email"
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
-        <br />
+        </div>
+        <div className={`form-group, position-relative`}>
         <label>
           Password:
           <input
             type="password"
             value={password}
+            className={'form-control'}
+            placeholder="************"
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <br />
-        <button type="submit">Login</button>
+        </div>
+        <button type="submit"
+        className={`btn-theme, button`}
+        >Login</button>
       </form>
       {error && <p className="error-message">{error}</p>}
     </div>
+    </section>
   );
 };
 

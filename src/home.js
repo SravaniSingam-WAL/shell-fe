@@ -39,11 +39,8 @@ const Home = () => {
   return (
     <div>
     <br></br>
-      <h2>{brandName}</h2>
-      <h4>Click on Below links to open particular app</h4>
-      <br/>
-      <br/>
-      <br/>
+      <span className="brandName">{brandName}</span>
+      <p className="homeHeading">Click on Below links to open particular app</p>
       <div className="container">
       <div className="row">
         {data.map((app, index) => (
