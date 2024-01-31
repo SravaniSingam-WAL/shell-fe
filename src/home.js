@@ -46,14 +46,18 @@ const Home = () => {
         {data.map((app, index) => (
           app.isAccess && (
             <div key={index} className="col-md-3 mb-3">
-              <div className="card" style={{ cursor: 'pointer' }} onClick={() => console.log(`Clicked on ${app.application.name}`)}>
+              <div className="card" style={{ cursor: 'pointer' }} onClick={() => { console.log(`Clicked Helo on ${app.application.name} url ${app.application}`);
+              const baseUrl = getBaseUrl(app.application.name);
+              console.log(baseUrl, 'Base Url,----------');
+              window.location.replace(`${baseUrl}${app.application.url}`)
+              }}>
                 <div className="card-body">
                 <span
                 style={{ cursor: 'pointer' }}
                 onClick={() => {
-                  console.log(`Clicked on ${app.application.name}`);
+                  console.log(`Clicked Helo on ${app.application.name} url ${app.application}`);
                   const baseUrl = getBaseUrl(app.application.name);
-                  console.log(baseUrl, 'Base Url');
+                  console.log(baseUrl, 'Base Url,----------');
                   window.location.replace(`${baseUrl}${app.application.url}`)
                 }}
               >
