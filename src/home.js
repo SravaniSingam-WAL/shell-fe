@@ -39,7 +39,7 @@ const Home = () => {
   return (
     <div>
     <br></br>
-    <h4 className="welcomeText">Welcome {name}! welcome to the tenant management app.</h4>
+    <h4 className="welcomeText">Welcome {name}! welcome to the Shell app.</h4>
       <p className="homeHeading">Explore Available Applications, click on cards below to to access specific applications.</p>    
      <div className="container">
       <div className="row">
