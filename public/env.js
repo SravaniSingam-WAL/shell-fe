@@ -22,7 +22,7 @@ window.env = {
   "COMMAND_MODE": "unix2003",
   "npm_config_globalconfig": "/opt/homebrew/etc/npmrc",
   "CONDA_EXE": "/opt/miniconda3/bin/conda",
-  "SSH_AUTH_SOCK": "/private/tmp/com.apple.launchd.87XYPFZPv9/Listeners",
+  "SSH_AUTH_SOCK": "/private/tmp/com.apple.launchd.KlqVeHCrXD/Listeners",
   "__CF_USER_TEXT_ENCODING": "0x1F5:0x0:0x0",
   "npm_execpath": "/opt/homebrew/lib/node_modules/npm/bin/npm-cli.js",
   "_CE_CONDA": "",
@@ -65,8 +65,8 @@ window.env = {
   "npm_node_execpath": "/opt/homebrew/Cellar/node/20.8.1/bin/node",
   "npm_config_prefix": "/opt/homebrew",
   "COLORTERM": "truecolor",
-  "OP_APP_BASEURL": "http://localhost:3004/op",
-  "CLAS_APP_BASEURL": "http://localhost:3006/clas",
-  "RDMS_APP_BASEURL": "http://localhost:3005/rdms",
-  "FAA_APP_BASEURL": "http://localhost:3007/faa"
+  "OP_APP_BASEURL": "http://localhost:3004",
+  "CLAS_APP_BASEURL": "http://localhost:3006",
+  "RDMS_APP_BASEURL": "http://localhost:3005",
+  "FAA_APP_BASEURL": "http://localhost:3007"
 };

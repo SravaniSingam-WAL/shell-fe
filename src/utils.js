@@ -6,6 +6,10 @@ export const getEmail = () => {
     const { email } =  JSON.parse(localStorage.getItem('user') || '{}');
     return email || '';
 };
+export const getName = () => {
+    const { name } =  JSON.parse(localStorage.getItem('user') || '{}');
+    return name || '';
+};
 
 export const getTenantId = () => {
     const { tenantId } =  JSON.parse(localStorage.getItem('user') || '{}');
